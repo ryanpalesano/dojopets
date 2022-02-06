@@ -28,18 +28,19 @@ class Pet:
         return self
 
     # noise() - prints out the pet's sound
-    def noise(self):
+    def make_noise(self):
         print(self.noise)
 
+#-----------------------------------------------------------------------#
 
 class More(Pet):
 
-    def __init__(self, name, tricks, puppy_food):
-        super().__init__(name, tricks)
+    def __init__(self, name, tricks, noise, puppy_food):
+        super().__init__(name, type, tricks, noise)
         self.puppy_food = puppy_food
 
 
-
+#------------------------------------------------------------------------#
 
 class Ninja:
     # implement __init__( first_name , last_name , treats , pet_food , pet )
@@ -52,11 +53,13 @@ class Ninja:
 
     # implement the following methods:
     # walk() - walks the ninja's pet invoking the pet play() method
+
     def walk(self):
         self.pet.play()
-        return self
+        print(self.pet.energy)
 
-    # feed() - feeds the ninja's pet invoking the pet eat() method
+
+    # feed() - feed the ninja's pet invoking the pet eat() method
     def feed(self):
 
         if len(self.pet_food) > 0:
@@ -74,10 +77,14 @@ class Ninja:
 my_treats = ['Snausage','Bacon',"Trash Bag"]
 my_pet_food = ['Pizza','Burger']
 
+old_yeller = More("Old Yeller","jump", "bark", "jerky")
+print(old_yeller.puppy_food)
+
+
 nibbles = Pet("Mr. Nibbles","Horse",['nibbles on things','is invisible'],"Hey Hey")
 
-adrien = Ninja("Adrien","Dion",my_treats,my_pet_food, nibbles)
+adrien = Ninja("Adrien","Dion", my_treats, my_pet_food, nibbles)
 
-adrien.feed();
-adrien.feed();
-adrien.feed();
+adrien.feed()
+adrien.feed()
+adrien.feed()
